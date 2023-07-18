@@ -39,7 +39,7 @@ public class PrenotazioneController {
         Prenotazione prenotazione = new Prenotazione(biglietto, utente);
         this.prenotazioneService.salvaPrenotazione(prenotazione);
         redirectAttributes.addAttribute("prenotazione", true);
-        return "redirect:/musei/" + biglietto.getMuseo().getId();
+        return "forward:/musei/" + biglietto.getMuseo().getId();
     }
 
     @GetMapping("/prenotazioni/{id}/delete")
@@ -50,7 +50,7 @@ public class PrenotazioneController {
         aumentaQuantita(biglietto);
         this.bigliettoService.salvaBiglietto(biglietto);
         this.prenotazioneService.cancellaPrenotazione(id);
-        return "redirect:/profilo";
+        return "forward:/profilo";
     }
     
 }

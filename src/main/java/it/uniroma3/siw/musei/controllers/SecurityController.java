@@ -55,7 +55,7 @@ public class SecurityController {
     @GetMapping("/logout")
     public String logout(Model model) {
         log.info("Richiesta GET /logout");
-        return "redirect:/index";
+        return "forward:/index";
     }
 
     @GetMapping("/default")
@@ -63,7 +63,7 @@ public class SecurityController {
         log.info("Richiesta GET /default");
         Credenziali credenziali = this.userDetailsComponent.getCredenzialiAutenticate();
         log.info("Indirizzamento alla Home per il ruolo: " + credenziali.getRuolo().toString());
-        return (credenziali.getRuolo().equals(ADMIN)) ? "redirect:/admin/home" : "redirect:/home";
+        return (credenziali.getRuolo().equals(ADMIN)) ? "forward:/admin/home" : "forward:/home";
     }
 
     @PostMapping("/register")

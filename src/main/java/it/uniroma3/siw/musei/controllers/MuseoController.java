@@ -80,7 +80,7 @@ public class MuseoController {
     public String cancellaMuseo(@PathVariable Long id, Model model) {
         log.info("Richiesta GET /admin/musei/" + id + "/delete");
         this.museoService.cancellaMuseo(id);
-        return "redirect:/admin/musei";
+        return "forward:/admin/musei";
     }
 
     @GetMapping("/admin/musei/{id}/biglietti/new")

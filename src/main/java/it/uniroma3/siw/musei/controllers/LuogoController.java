@@ -44,7 +44,7 @@ public class LuogoController {
     public String deleteLuogo(@PathVariable Long id) {
         log.info("Richiesta GET /admin/luoghi/" + id + "/delete");
         this.luogoService.cancellaLuogo(id);
-        return "redirect:/admin/luoghi";
+        return "forward:/admin/luoghi";
     }
 
     @PostMapping("/admin/luoghi/new")
